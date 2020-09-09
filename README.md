@@ -33,58 +33,59 @@ Things you may want to cover:
 | email           | string   | null: false, unique: true |
 | password        | string   | null: false               |
 | birthday        | date     | null: false               |
-| surname         | string   | null: false, unique: true |
-| first name      | string   | null: false, unique: true |
-| phonetic name1  | string   | null: false, unique: true |
-| phonetic name2  | string   | null: false, unique: true |
+| surname         | string   | null: false               |
+| first_name      | string   | null: false               |
+| phonetic_name1  | string   | null: false               |
+| phonetic_name2  | string   | null: false               |
 
 ### Association
 
 - has_many :products
-- has_one buy
+- has_many :buys
 
 ## products テーブル
 
-| Column             | Type         | Options                  |
-| ------------------ | ------------ | ------------------------ |
-| product name       | string       | null: false, limit: 40   |
-| description        | text         | null: false, limit: 1000 |
-| category           | integer      | null: false              |
-| status             | integer      | null: false              |
-| fee                | integer      | null: false              |
-| area               | integer      | null: false              |
-| days               | integer      | null: false              |
-| price              | integer      | null: false              |
-| user               | integer      | null: false              |
+| Column             | Type         | Options                        |
+| ------------------ | ------------ | ------------------------------ |
+| product_name       | string       | null: false, limit: 40         |
+| description        | text         | null: false, limit: 1000       |
+| category           | integer      | null: false                    |
+| status             | integer      | null: false                    |
+| fee                | integer      | null: false                    |
+| area               | integer      | null: false                    |
+| days               | integer      | null: false                    |
+| price              | integer      | null: false                    |
+| user               | references   | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :users
+- belongs_to :users
 - has_one :buy
 
-## buy テーブル
+## buys テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| user    | string     | null: false, foreign_key: true |
-| product | string     | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+| product | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :users
-- has_one :products
+- has_one :user
+- has_one :product
+- has_one :address
 
-## address テーブル
+## addresses テーブル
 
 | Column              | Type          | Options                        |
 | ------------------- | ------------- | ------------------------------ |
-| postal code         | string        | null: false                    |
+| postal_code         | string        | null: false                    |
 | prefectures         | integer       | null: false                    |
 | cities              | string        | null: false                    |
 | number              | string        | null: false                    |
 | building            | string        |                                |
 | phone number        | string        | null: false                    |
-| product             | string        | null: false, foreign_key: true |
+| product             | references    | null: false, foreign_key: true |
 
 ### Association
 
