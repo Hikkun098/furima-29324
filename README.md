@@ -59,7 +59,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 - has_one :buy
 
 ## buys テーブル
@@ -71,8 +71,8 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :user
-- has_one :product
+- belongs_to :user
+- belongs_to :product
 - has_one :address
 
 ## addresses テーブル
