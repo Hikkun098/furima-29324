@@ -46,10 +46,10 @@ Things you may want to cover:
 | image              | string       | null: false              |
 | product name       | string       | null: false, limit: 40   |
 | description        | text         | null: false, limit: 1000 |
-| category           | string       | null: false              |
-| status             | string       | null: false              |
+| category           | integer      | null: false              |
+| status             | integer      | null: false              |
 | fee                | integer      | null: false              |
-| area               | string       | null: false              |
+| area               | integer      | null: false              |
 | days               | integer      | null: false              |
 | price              | integer      | null: false              |
 
@@ -59,11 +59,10 @@ Things you may want to cover:
 
 ## buy テーブル
 
-| Column            | Type         | Options     |
-| ----------------- | ------------ | ----------- |
-| card information  | integer      | null: false |
-| expiration date   | integer      | null: false |
-| security code     | integer      | null: false |
+| Column  | Type       | Options     |
+| ------- | ---------- | ----------- |
+| user    | string     | null: false |
+| product | string     | null: false |
 
 ### Association
 
@@ -73,12 +72,12 @@ Things you may want to cover:
 
 | Column              | Type          | Options     |
 | ------------------- | ------------- | ----------- |
-| postal code         | integer       | null: false |
+| postal code         | string        | null: false |
 | prefectures         | string        | null: false |
 | cities              | string        | null: false |
-| number              | integer       | null: false |
+| number              | string        | null: false |
 | building            | string        | null: false |
-| phone number        | integer       | null: false |
+| phone number        | string        | null: false |
 
 ### Association
 
