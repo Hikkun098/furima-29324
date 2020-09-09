@@ -27,12 +27,16 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column      | Type     | Options                   |
-| ----------- | -------- | ------------------------- |
-| nickname    | string   | null: false, unique: true |
-| email       | string   | null: false, unique: true |
-| password    | string   | null: false, unique: true |
-| birthday    | date     | null: false               |
+| Column          | Type     | Options                   |
+| --------------- | -------- | ------------------------- |
+| nickname        | string   | null: false, unique: true |
+| email           | string   | null: false, unique: true |
+| password        | string   | null: false               |
+| birthday        | date     | null: false               |
+| surname         | string   | null: false, unique: true |
+| first name      | string   | null: false, unique: true |
+| phonetic name1  | string   | null: false, unique: true |
+| phonetic name2  | string   | null: false, unique: true |
 
 ### Association
 
@@ -43,7 +47,6 @@ Things you may want to cover:
 
 | Column             | Type         | Options                  |
 | ------------------ | ------------ | ------------------------ |
-| image              | string       | null: false              |
 | product name       | string       | null: false, limit: 40   |
 | description        | text         | null: false, limit: 1000 |
 | category           | integer      | null: false              |
@@ -52,34 +55,37 @@ Things you may want to cover:
 | area               | integer      | null: false              |
 | days               | integer      | null: false              |
 | price              | integer      | null: false              |
+| user               | integer      | null: false              |
 
 ### Association
 
+- has_many :users
 - has_one :buy
 
 ## buy テーブル
 
-| Column  | Type       | Options     |
-| ------- | ---------- | ----------- |
-| user    | string     | null: false |
-| product | string     | null: false |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | string     | null: false, foreign_key: true |
+| product | string     | null: false, foreign_key: true |
 
 ### Association
 
+- has_one :users
 - has_one :products
 
 ## address テーブル
 
-| Column              | Type          | Options     |
-| ------------------- | ------------- | ----------- |
-| postal code         | string        | null: false |
-| prefectures         | string        | null: false |
-| cities              | string        | null: false |
-| number              | string        | null: false |
-| building            | string        | null: false |
-| phone number        | string        | null: false |
+| Column              | Type          | Options                        |
+| ------------------- | ------------- | ------------------------------ |
+| postal code         | string        | null: false                    |
+| prefectures         | integer       | null: false                    |
+| cities              | string        | null: false                    |
+| number              | string        | null: false                    |
+| building            | string        |                                |
+| phone number        | string        | null: false                    |
+| product             | string        | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :users
 - belongs_to :buy
