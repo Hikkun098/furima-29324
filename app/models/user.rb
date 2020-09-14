@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :nickname, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true, inclusion: { in: %w(@) }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
-  validates :encrypted_password, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
+  validates :password_confirmation, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
   validates :birthday, presence: true
   VALID_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
   validates :surname, presence: true, format: { with: VALID_NAME_REGEX }
