@@ -10,8 +10,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.date   :birthday,           null: false
       t.string :surname,            null: false
       t.string :first_name,         null: false
-      t.string :phonetic_name1,     null: false
-      t.string :phonetic_name2,     null: false
+      t.string :surname_phonetic,     null: false
+      t.string :first_name_phonetic,     null: false
 
       ## Recoverable
       t.string   :reset_password_token

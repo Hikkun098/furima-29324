@@ -7,7 +7,7 @@ FactoryBot.define do
     birthday              {"1990-12-20"}
     surname               {"阿部"}
     first_name            {"宏"}
-    phonetic_name1        {"アベ"}
-    phonetic_name2        {"ヒロシ"}
+    surname_phonetic        {"アベ"}
+    first_name_phonetic        {"ヒロシ"}
   end
 end

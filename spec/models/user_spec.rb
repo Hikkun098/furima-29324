@@ -8,7 +8,7 @@ RSpec.describe User, type: :model
     end
 
     context '新規登録がうまくいくとき' do 
-      it "nickname,email、password,password_confirmation,birthday,surname,first_name,phonetic_name1,phonetic_name2が存在すれば登録できる" do
+      it "nickname,email、password,password_confirmation,birthday,surname,first_name,surname_phonetic,first_name_phoneticが存在すれば登録できる" do
         expect(@user).to be_valid
       end
       it "passwordが6文字以上であれば登録できる" do
@@ -92,23 +92,23 @@ RSpec.describe User, type: :model
         @user.valid?
         expect(@user.errors.full_messages).to include("First name is invalid")
       end
-      it "phonetic_name1が空だと登録できない" do
-        @user.phonetic_name1 = ''
+      it "surname_phoneticが空だと登録できない" do
+        @user.surname_phonetic = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Phonetic name1 can't be blank")
       end
-      it "phonetic_name1は全角（カタカナ）以外では登録できない" do
-        @user.phonetic_name1 = "阿部"
+      it "surname_phoneticは全角（カタカナ）以外では登録できない" do
+        @user.surname_phonetic = "阿部"
         @user.valid?
         expect(@user.errors.full_messages).to include("Phonetic name1 is invalid")
       end
-      it "phonetic_name2が空では登録できない" do
-        @user.phonetic_name2 = ''
+      it "first_name_phoneticが空では登録できない" do
+        @user.first_name_phonetic = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Phonetic name2 can't be blank")
       end
-      it "phonetic_name2が全角（カタカナ）以外では登録できない" do
-        @user.phonetic_name2 = "宏"
+      it "first_name_phoneticが全角（カタカナ）以外では登録できない" do
+        @user.first_name_phonetic = "宏"
         @user.valid?
         expect(@user.errors.full_messages).to include("Phonetic name2 is invalid")
       end
