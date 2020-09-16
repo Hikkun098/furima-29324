@@ -40,14 +40,14 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :products
+- has_many :items
 - has_many :buys
 
-## products テーブル
+## items テーブル
 
 | Column             | Type         | Options                        |
 | ------------------ | ------------ | ------------------------------ |
-| product_name       | string       | null: false, limit: 40         |
+| item_name          | string       | null: false, limit: 40         |
 | description        | text         | null: false, limit: 1000       |
 | category           | integer      | null: false                    |
 | status             | integer      | null: false                    |
@@ -67,12 +67,12 @@ Things you may want to cover:
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | user    | references | null: false, foreign_key: true |
-| product | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :product
+- belongs_to :item
 - has_one :address
 
 ## addresses テーブル
@@ -84,7 +84,7 @@ Things you may want to cover:
 | cities              | string        | null: false                    |
 | number              | string        | null: false                    |
 | building            | string        |                                |
-| phone number        | string        | null: false                    |
+| phone_number        | string        | null: false                    |
 | buy                 | references    | null: false, foreign_key: true |
 
 ### Association
