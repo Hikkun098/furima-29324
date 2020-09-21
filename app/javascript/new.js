@@ -2,10 +2,11 @@
   //var fee = ;     //販売手数料
   //var profit = ;          //販売利益
 
+// console.log("OK");
+
   window.addEventListener("load",function(){
 
     const submit = document.getElementById("item-price");
-    console.log(submit)
 
     submit.addEventListener("input", () => {
 
