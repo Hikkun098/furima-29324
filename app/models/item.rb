@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   validates :area_id, presence: true, numericality: { other_than: 1 }
   validates :days_id, presence: true, numericality: { other_than: 1 }
   VALID_PRICE_REGEX = /\A[0-9]+\z/
-  validates :price, presence: true, length: { minimum: 300 }, length: { minimum: 9999999 }, format: { with: VALID_PRICE_REGEX }
+  validates :price, presence: true, :numericality => { :less_than_or_equal_to => 9999999 }, :numericality => { :greater_than_or_equal_to => 300 }, format: { with: VALID_PRICE_REGEX }
   validates :user, presence: true
 
 end
