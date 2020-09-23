@@ -8,7 +8,7 @@ RSpec.describe Item, type: :model do
     end
 
     context '商品出品がうまくいくとき' do 
-      it "image,item_name,description,category_id,status_id,fee_id,area_id,days_id,price,userが存在すれば登録できる" do
+      it "image,item_name,description,category_id,status_id,fee_id,area_id,day_id,price,userが存在すれば登録できる" do
         expect(@item).to be_valid
       end
     end
@@ -49,8 +49,8 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Area must be other than 1")
       end
-      it "days_idで1が選択された場合、出品できない" do
-        @item.days_id = '1'
+      it "day_idで1が選択された場合、出品できない" do
+        @item.day_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Days must be other than 1")
       end
