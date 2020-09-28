@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
+    #@items = Item.find.price
   end
 
   def create
