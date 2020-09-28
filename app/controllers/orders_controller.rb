@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(price: order_params[:price])
+    @order = Order.new(order_params)
     if @order.valid?
       pay_item
       @order.save
