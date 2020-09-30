@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    #@items = Item.find.price
+    @order = Order.new
   end
 
   def create
@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:price, :token)
+    params.require(:order).permit(:price).merge(token: params[:token])
   end
 
   def pay_item
