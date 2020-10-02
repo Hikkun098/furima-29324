@@ -18,4 +18,7 @@ class User < ApplicationRecord
   validates :surname_phonetic, presence: true, format: { with: VALID_PHONETIC_REGEX }
   validates :first_name_phonetic, presence: true, format: { with: VALID_PHONETIC_REGEX }
 
+  has_many :items
+  has_many :orders
+
 end
