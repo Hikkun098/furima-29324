@@ -25,10 +25,15 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
     end
-    it '都道府県が必須であること' do
+    it '都道府県の値が1では登録できないこと' do
       @order_address.area_id = 1
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Area must be other than 1")
+    end
+    it '都道府県が必須であること' do
+      @order_address.area_id = nil
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Area can't be blank")
     end
     it '市区町村が必須であること' do
       @order_address.city = nil
