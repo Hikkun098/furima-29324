@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   def index
     @order = OrderAddress.new
-    return redirect_to root_path if current_user.id == @item.user.id || @item.order.present? != nil
+    return redirect_to root_path if current_user.id == @item.user.id || @item.order != nil
      
     end
   end
