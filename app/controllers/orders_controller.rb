@@ -5,10 +5,6 @@ class OrdersController < ApplicationController
     @order = OrderAddress.new
   end
 
-  def new
-    @order = OrderAddress.new
-  end
-
   def create
     @order = OrderAddress.new(order_params)
     if @order.valid?
