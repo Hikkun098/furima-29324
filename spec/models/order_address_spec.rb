@@ -23,7 +23,12 @@ RSpec.describe OrderAddress, type: :model do
     it '郵便番号にはハイフンが必須であること' do
       @order_address.postal_code = '1234567'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+      expect(@order_address.errors.full_messages).to include("Postal code is invalid.")
+    end
+    it '郵便番号は7桁であること' do
+      @order_address.postal_code = '1234-56789'
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Postal code is invalid.")
     end
     it '都道府県の値が1では登録できないこと' do
       @order_address.area_id = 1
