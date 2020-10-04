@@ -4,8 +4,6 @@ class OrdersController < ApplicationController
   def index
     @order = OrderAddress.new
     return redirect_to root_path if current_user.id == @item.user.id || @item.order != nil
-     
-    end
   end
 
   def create
