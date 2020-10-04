@@ -18,12 +18,12 @@ class OrdersController < ApplicationController
       render 'index'
     end
   end
+  
+  private
 
   def set_order
     @item = Item.find(params[:item_id])
   end
-  
-  private
 
   def order_params
     params.permit(:postal_code, :area_id, :city, :house_number, :building_name, :phone_number, :item_id, :token).merge(user_id: current_user.id)
