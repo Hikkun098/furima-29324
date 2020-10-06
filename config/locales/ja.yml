@@ -17,7 +17,7 @@ ja:
         fee_id: 発送料
         area_id: 発送地域
         day_id: 発送日数
-        price: 
+        price: 価格
          
  activemodel:
         attributes:
