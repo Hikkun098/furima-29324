@@ -17,9 +17,14 @@ ja:
         fee_id: 発送料
         area_id: 発送地域
         day_id: 発送日数
-        price: 金額
-     order:
-        postal_code: 郵便番号
-        city: 市町村
-        house_number: 番地
-        phone_number: 電話番号
+        price: 
+         
+ activemodel:
+        attributes:
+         order_address:
+            postal_code: 郵便番号
+            city: 市町村
+            house_number: 番地
+            phone_number: 電話番号
+            token: トークン
+            area_id: 発送地域
