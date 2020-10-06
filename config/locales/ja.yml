@@ -1,0 +1,30 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+        nickname: ニックネーム
+        birthday: 誕生日
+        surname: 妙字
+        first_name: 名前
+        surname_phonetic: 妙字(フリガナ)
+        first_name_phonetic: 名前(フリガナ)
+     item:
+        image: 画像
+        item_name: 商品名
+        description: 商品説明
+        category_id: カテゴリー
+        status_id: 商品状態
+        fee_id: 発送料
+        area_id: 発送地域
+        day_id: 発送日数
+        price: 
+         
+ activemodel:
+        attributes:
+         order_address:
+            postal_code: 郵便番号
+            city: 市町村
+            house_number: 番地
+            phone_number: 電話番号
+            token: トークン
+            area_id: 発送地域
