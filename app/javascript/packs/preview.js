@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', function(){
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
 
-    createImageHTML(blob);
-
     const imageElement = document.createElement('div');
     const blobImage = document.createElement('img');
     blobImage.setAttribute('src', blob);
